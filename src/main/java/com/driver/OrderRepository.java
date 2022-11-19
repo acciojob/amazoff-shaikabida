@@ -110,10 +110,11 @@ public class OrderRepository {
     public String getLastDeliveryTimeByPartnerId(String partnerId){
         String time="";
         DeliveryPartner partner=partners.get(partnerId);
-        List<Order> orders=deliveryOrders.get(partner);
+        List<Order> orderList=deliveryOrders.get(partner);
         int maxTime=0;
-        for(int i=0;i<orders.size();i++){
-            int currOrderTime=orders.get(i).getDeliveryTime();
+
+        for(int i=0;i<orderList.size();i++){
+            int currOrderTime=orderList.get(i).getDeliveryTime();
             if(currOrderTime>maxTime){
                 maxTime=currOrderTime;
             }
